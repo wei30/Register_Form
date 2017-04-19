@@ -85,26 +85,26 @@
        $('.register_form').validate({
           rules: {
             name: {
+              required: true  //required to fillout name
+            },
+            username: {       //required to fillout username
               required: true
             },
-            username: {
-              required: true
-            },
-            password: {
+            password: {       //required to fillout password
               required: true,
               minlength: 6
              
             },
-            email: {
+            email: {          //required to fillout valid email
               required: true,
-              email: true
+              email: true     
                          
             },
-            gender: {
+            gender: {         //required to fillout gender
               required: true
             },
           },
-          messages: {
+          messages: {      
             name: {
               required: "Please fill out your name"
             },
@@ -129,25 +129,25 @@
           }
        });
        
-       $('#hidepassword').hide();
+       $('#hidepassword').hide(); //hide the password
        $('#hidepassword').attr('readonly', 'readonly');
        $('#hidepassword').blur(function(){
            $('#hidepassword').val($(this).val());
        });
     
-         $("#inputfile").change(function(){
-          readURL(this);
+         $("#inputfile").change(function(){ //this function helps to change another image 
+          readURL(this); //call the readURL
     });
             
     });
        // source: https://jsfiddle.net/lesson8/9NeXg/
-         function readURL(input) {
+         function readURL(input) { 
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             
-            reader.onload = function (e) {
-                $('#imagelogo').attr('src', e.target.result);
-                $('#imagelogo').appendTo("#imagelocation");
+            reader.onload = function (e) { //load the image
+                $('#imagelogo').attr('src', e.target.result); //get the source of image
+                $('#imagelogo').appendTo("#imagelocation"); //print the image into the div
                 
             }
             
